@@ -1,0 +1,9 @@
+<div class="vote">
+  <p>C'est l'heure du vote ! Recommanderiez-vous ces restaurants ?</p>
+  <div class="restaurants-list">
+    <app-restaurant-vote-card
+      [submission]="submission"
+      *ngFor="let submission of submissions"
+    ></app-restaurant-vote-card>
+  </div>
+</div>

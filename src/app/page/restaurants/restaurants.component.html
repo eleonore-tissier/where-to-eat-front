@@ -1,0 +1,20 @@
+<div class="search">
+  <h3>Cherchez le restaurant que vous souhaitez proposer !</h3>
+  <form class="findRestaurant" #searchRestaurant="ngForm" (ngSubmit)="onSearch()">
+    <button class="searchButton" type="submit" [disabled]="!searchRestaurant.valid">Rechercher</button>
+    <input class="restaurant" type="text" name="name" id="name" placeholder="Entrez un nom de restaurant..." ngModel required>
+  </form>
+  <div class="answer" *ngIf="foundRestaurant">
+    <div class="description">
+      <p>J'ai trouvé <span>{{ this.foundRestaurant?.name }}</span> !</p>
+      <p>{{ this.foundRestaurant?.address }}</p>
+      <p>{{ this.foundRestaurant?.postalCode }} {{ this.foundRestaurant?.city }}</p>
+      <p>{{ this.foundRestaurant?.category }}</p>
+      <p>{{ this.foundRestaurant?.landlinePhone }}</p>
+    </div>
+    <form #submitRestaurant="ngForm" (ngSubmit)="onSubmit()">
+      <input class="date" type="date" name="date" id="date" ngModel required>
+      <button class="submitRestaurant" type="submit" [disabled]="!submitRestaurant.valid">Soumettre une proposition</button>
+    </form>
+  </div>
+</div>

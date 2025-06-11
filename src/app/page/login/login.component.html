@@ -1,0 +1,40 @@
+<div class="login-page">
+  <h3>Connecte-toi !</h3>
+  <form class="login" #loginPage="ngForm" (ngSubmit)="onSubmit()">
+    <h3>Qui es-tu ?</h3>
+    <table>
+      <tr>
+        <td>
+          <label for="firstName">Prénom</label>
+        </td>
+        <td>
+          <input class="firstName" type="firstName" name="firstName" id="firstName" placeholder="Entre ton prénom..." ngModel required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="lastName">Nom</label>
+        </td>
+        <td>
+          <input class="lastName" type="lastName" name="lastName" id="lastName" placeholder="Entre ton nom..." ngModel required>
+        </td>
+      </tr>
+    </table>
+    <button class="loginButton" type="submit" [disabled]="!loginPage.valid">C'est parti !</button>
+  </form>
+</div>
+
+<!--<form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>-->
+<!--  <div [ngClass]="{ 'has-error': f.submitted && !email.valid }">-->
+<!--    <label for="email">Username</label>-->
+<!--    <input type="text"-->
+<!--           id = "email"-->
+<!--           name="email" [(ngModel)]="model.email"-->
+<!--           #email="ngModel" required />-->
+<!--    <div *ngIf="f.submitted-->
+<!--          && !email.valid">Username is required</div>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <button>Login</button>-->
+<!--  </div>-->
+<!--</form>-->

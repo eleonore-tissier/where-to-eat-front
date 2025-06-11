@@ -1,0 +1,48 @@
+div.login-page {
+  display: flex;
+  flex-direction: column;
+}
+
+form.login {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: solid #5C913B 1px;
+  background-color: white;
+  align-self: center;
+  align-items: center;
+  box-shadow: 0 0 1rem 1rem white;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+table tr {
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+}
+
+input {
+  border-left: solid #AEE39D 4px;
+  border-bottom: solid #AEE39D 1px;
+  border-top: none;
+  padding-left: 1rem;
+  border-right: none;
+}
+
+button,
+button:disabled {
+  background-color: #AEE39D;
+  border: solid black 1px;
+  border-radius: 2rem;
+  color: black;
+  width: 50%;
+  height: 2rem;
+}

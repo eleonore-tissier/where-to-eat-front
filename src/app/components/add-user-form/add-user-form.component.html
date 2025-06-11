@@ -1,0 +1,20 @@
+<div class="add-user">
+  <h2>Ajouter un utilisateur</h2>
+  <form [formGroup]="addUserForm">
+    <div class="form">
+      <mat-form-field class="field">
+        <mat-label>Prénom</mat-label>
+        <input name="firstname" matInput formControlName="firstname" />
+      </mat-form-field>
+      <mat-form-field class="field">
+        <mat-label>Nom de famille</mat-label>
+        <input name="firstname" matInput formControlName="firstname" />
+      </mat-form-field>
+      <mat-form-field class="field">
+        <mat-label>Rôle</mat-label>
+        <input name="firstname" matInput formControlName="firstname" />
+      </mat-form-field>
+    </div>
+    <button mat-button type="submit" class="submitButton">Ajouter</button>
+  </form>
+</div>

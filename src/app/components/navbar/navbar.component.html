@@ -1,0 +1,34 @@
+<div class="navbar" *ngIf="loggedUser">
+  <a
+    routerLink="restaurants"
+    matTooltip="ACCUEIL"
+    matTooltipClass="tooltip-navbar"
+    matTooltipPosition="left"
+  ><img src="/home.svg"></a>
+  <a
+    routerLink="profile"
+    matTooltip="PROFIL"
+    matTooltipPosition="left"
+  ><img src="/user.svg"></a>
+  <a
+    routerLink="saison"
+    matTooltip="CLASSEMENT"
+    matTooltipPosition="left"
+  ><img src="/leaderboard.svg"></a>
+  <a
+    routerLink="vote"
+    matTooltip="ESPACE VOTE"
+    matTooltipPosition="left"
+  ><img src="/vote.svg"></a>
+  <a
+    routerLink="planning"
+    matTooltip="PLANNING DES RESTOS"
+    matTooltipPosition="left"
+  ><img src="/planning.svg"></a>
+  <a
+    *ngIf="loggedUser?.role === Role.ROLE_ADMIN"
+    routerLink="admin"
+    matTooltip="ESPACE ADMINISTRATEUR"
+    matTooltipPosition="left"
+  ><img src="/admin_panel.svg"></a>
+</div>

@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="user-details">
+    <p>{{ submission?.date | date: 'dd/MM/yyyy' }}</p>
+    <p>{{ user?.firstName }} {{ user?.lastName }}</p>
+  </div>
+  <div class="restaurant-details">
+    <p>{{ restaurant?.name }}</p>
+    <p>{{ restaurant?.address }}</p>
+    <p>{{ restaurant?.postalCode }} {{ restaurant?.city }}</p>
+  </div>
+</div>

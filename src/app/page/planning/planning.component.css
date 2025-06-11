@@ -1,0 +1,5 @@
+div.dinner-cards {
+  margin-top: 1rem;
+  display: flex;
+  gap: 2rem;
+}

@@ -1,0 +1,78 @@
+img {
+  width: min-content;
+}
+
+div.circle {
+  position: relative;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 50rem;
+  width: 15rem;
+  height: 15rem;
+  border: solid #5C913B 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+}
+
+div.vote-bar {
+  margin-top: -7.5rem;
+  padding-top: 8.5rem;
+  padding-bottom: 1rem;
+  background-color: white;
+  border: solid #5C913B 1px;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  width: 15rem;
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+div.circle:hover+div.vote-bar,
+div.vote-bar:hover {
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+button.vote-button {
+  height: 2rem;
+  background-color: #AEE39D;
+  color: black;
+  border: solid black 1px;
+  border-radius: 100rem;
+  width: fit-content;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  width: 60%;
+}
+
+button.vote-button:nth-child(2) {
+  background-color: white;
+}
+
+button.vote-button:hover {
+  background-color: #a2d292;
+}
+
+button.vote-button:nth-child(2):hover {
+  background-color: #f0f0f0;
+}
+
+span {
+  font-weight: 500;
+}

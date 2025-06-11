@@ -1,0 +1,82 @@
+div.admin-page {
+  display: flex;
+  gap: 3rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+div.buttons {
+  margin-top: 2rem;
+}
+
+button {
+  margin-left: 1rem;
+  width: fit-content;
+  padding: 0.5rem;
+  background-color: #AEE39D;
+  border: solid black 1px;
+  border-radius: 100rem;
+}
+
+button.table-button {
+  background: none;
+  border: none;
+}
+
+button:hover {
+  background-color: #87ad7a;
+}
+
+button.end-season:hover {
+  background-color: #E35D5DFF;
+}
+
+table {
+  margin-top: 2rem;
+  border-spacing: 0;
+  width: fit-content;
+}
+
+table th, table td {
+  border: solid black 1px;
+  height: 2.5rem;
+}
+
+table td {
+  padding: 0.5rem 2rem;
+}
+
+table tr:first-child th:first-child {
+  border-top-left-radius: 0.5rem;
+}
+
+table tr:first-child th:last-child {
+  border-top-right-radius: 0.5rem;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 0.5rem;
+}
+
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 0.5rem;
+}
+
+th {
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: #AEE39D;
+}
+
+td {
+  padding-left: 1rem;
+}

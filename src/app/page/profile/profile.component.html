@@ -1,0 +1,9 @@
+<p>C'est vous !</p>
+<div class="profile-card">
+  <img class="picture" src="/profile-picture - Copie.png">
+  <h2 class="user-name">{{ user?.firstName }} {{ user?.lastName }}</h2>
+  <p class="user-email">{{ user?.email }}</p>
+  <p class="user-score">Score : {{ user?.points }} pts</p>
+  <p class="user-role" *ngIf="user?.role === Role.ROLE_ADMIN"><img src="/admin.svg"> Vous êtes administrateur</p>
+  <img class="decoration" src="/card-decoration - Copie.png">
+</div>

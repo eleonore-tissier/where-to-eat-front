@@ -1,0 +1,28 @@
+<div class="leaderboard">
+  <div class="seasons">
+    <h2 class="saisons">
+      Saison en cours : {{ current_season?.startDate | date: 'dd/MM/yyyy' }} - {{ current_season?.endDate | date: 'dd/MM/yyyy' }}
+    </h2>
+    <button>Saisons précédentes</button>
+  </div>
+  <div class="leaderboard-table">
+    <h2>Classement</h2>
+    <table>
+      <tr>
+        <th></th>
+        <th>Position</th>
+        <th>Joueur</th>
+        <th>Score</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let user of users; let key = index">
+        <td></td>
+        <td>#{{ key+1 }}</td>
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.points }}</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>
+

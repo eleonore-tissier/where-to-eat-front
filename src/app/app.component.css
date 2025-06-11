@@ -1,0 +1,24 @@
+div.router-outlet {
+  width: 100%;
+  margin-top: 10rem;
+  margin-left: 12rem;
+}
+
+.navbar {
+  top: 25%;
+  position: fixed;
+  right: 0;
+}
+
+div.title {
+  display: block;
+  position: fixed;
+  top: 0;
+  margin: 1rem;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 3rem;
+}
+

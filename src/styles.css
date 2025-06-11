@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+content {
+  position: absolute;
+  z-index: 1;
+}
+
+.background {
+  position: absolute;
+  height: 100%;
+}
+
+.light-rectangle {
+  position: fixed;
+  width: 80%;
+  height: 80%;
+  background-color: #EEFFE8;
+  top: 0;
+  left: 0;
+  border: solid black 1px;
+}
+
+.dark-rectangle {
+  position: fixed;
+  width: 40%;
+  height: 80%;
+  background-color: #CDE8C370;
+  border: solid black 1px;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mdc-tooltip__surface {
+  font-family: "Outfit", sans-serif !important;
+  font-weight: 500 !important;
+  color: black !important;
+  background: #a2d292 !important;
+  margin-right: 2rem !important;
+  border-radius: 0 !important;
+  border: solid black 1px !important;
+}

@@ -1,0 +1,34 @@
+<div class="admin-page">
+  <div class="users-management">
+    <h2>Utilisateurs</h2>
+    <div class="buttons">
+      <button (click)="openDialog()" >Ajouter un utilisateur</button>
+    </div>
+    <table>
+      <tr>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let user of users; let key = index">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>
+          <button class="table-button"><img src="/pencil.svg"></button>
+          <button class="table-button"><img src="/bin.svg"></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="seasons-management">
+    <h2>Saisons</h2>
+    <p>Saison en cours : {{ current_season?.startDate | date: 'dd/MM/yyyy' }} - {{ current_season?.endDate | date: 'dd/MM/yyyy' }}</p>
+    <div class="buttons">
+      <button>Commencer une nouvelle saison</button>
+      <button class="end-season">Clôturer la saison en cours</button>
+    </div>
+
+  </div>
+</div>
+
+

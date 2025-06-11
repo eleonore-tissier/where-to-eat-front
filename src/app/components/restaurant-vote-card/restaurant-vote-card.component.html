@@ -1,0 +1,13 @@
+<div class="circle">
+  <img src="/cutleries.png">
+  <p>{{ submission?.restaurantName }}</p>
+</div>
+
+<div class="vote-bar">
+  <p>Proposé par : <span>{{ user?.firstName }} {{ user?.lastName }}</span></p>
+  <p>Je recommande ?</p>
+  <form>
+    <button class="vote-button" (click)="vote_value = true; onSubmit()" ><img src="/tada.png">Oui !<img src="/tada.png"></button>
+    <button class="vote-button" (click)="vote_value = false; onSubmit()">Non !</button>
+  </form>
+</div>

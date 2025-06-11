@@ -1,0 +1,22 @@
+h2 {
+  font-weight: 500;
+}
+
+div.add-user {
+  padding: 2rem;
+  background-color: white;
+  border: solid black 1px;
+  border-radius: 0;
+}
+
+div.form {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.submitButton {
+  font-weight: 500;
+  color: #AEE39D;
+}

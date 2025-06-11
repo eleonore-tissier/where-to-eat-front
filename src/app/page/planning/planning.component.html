@@ -1,0 +1,9 @@
+<div class="planning">
+  <h2>Prochaines dates :</h2>
+  <div class="dinner-cards">
+    <app-dinner-card
+      [submission]="submission"
+      *ngFor="let submission of submissions"
+    ></app-dinner-card>
+  </div>
+</div>

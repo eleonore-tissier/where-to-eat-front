@@ -1,0 +1,16 @@
+div.card {
+  padding: 1rem;
+  text-align: center;
+  background-color: white;
+  border-radius: 1rem;
+  border: solid black 1px;
+  width: 14rem;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+div.restaurant-details p {
+  font-size: 0.8rem;
+}

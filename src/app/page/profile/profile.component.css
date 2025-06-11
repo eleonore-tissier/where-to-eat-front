@@ -1,0 +1,53 @@
+div.profile-card {
+  margin-top: 2rem;
+  margin-left: 8rem;
+  display: grid;
+  padding: 1rem;
+  background-color: white;
+  border: solid black 1px;
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+
+img.picture {
+  grid-column: 1;
+  grid-row: 1 / 4;
+}
+
+h2.user-name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  grid-column: 2 / 3;
+  grid-row: 1;
+  margin-left: 1rem;
+}
+
+p.user-email {
+  grid-column: 2;
+  grid-row: 2;
+  margin-left: 1rem;
+}
+
+p.user-score {
+  grid-column: 1;
+  grid-row: 5;
+  margin-top: 1.5rem;
+}
+
+p.user-role {
+  grid-column: 2;
+  grid-row: 7;
+  justify-self: end;
+  margin-top: 1.5rem;
+}
+
+img.decoration {
+  grid-column: 2 / 3;
+  grid-row: 5 / 8;
+  margin-left: 5rem;
+  margin-bottom: 3rem;
+}
+
+p img {
+  vertical-align: middle;
+}
