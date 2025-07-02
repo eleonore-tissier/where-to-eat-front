@@ -16,15 +16,6 @@ export class WhereToEatService {
 
   constructor(private http: HttpClient) { }
 
-  public checkUser(firstName: string, lastName: string) {
-    const params: HttpParams = new HttpParams().set('firstName', firstName).set('lastName', lastName);
-    return this.http.get(this.whereToEatUrl + 'checkUser', {params, observe: 'response'});
-  }
-
-  public getLoggedUser() {
-    return this.http.get(this.whereToEatUrl + 'loggedUser', {observe: 'response'});
-  }
-
   public getRestaurants() {
     return this.http.get(this.whereToEatUrl + 'restaurants', {observe: 'response'});
   }
@@ -44,7 +35,8 @@ export class WhereToEatService {
 
   public submitRestaurant(restaurantName: string, eventDate: string) {
     const params: HttpParams = new HttpParams().set('restaurantName', restaurantName).set('eventDate', eventDate);
-    return this.http.post(this.whereToEatUrl + 'submitRestaurant', {params}, {observe: 'response'});
+    console.log(params);
+    return this.http.post(this.whereToEatUrl + 'submitRestaurant', params, {observe: 'response'});
   }
 
   public getSeasons() {

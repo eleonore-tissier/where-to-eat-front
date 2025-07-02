@@ -24,16 +24,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.whereToEatService.getLoggedUser()
-      .subscribe(response => {
-        if (response.status === 200) {
-          this.user = response.body as User;
-        } else if (response.status === 401) {
-          alert('You are not logged in.');
-          this.router.navigate(['login']).then(() => window.location.reload());
-        }
-
-      });
   }
 
   protected readonly Role = Role;

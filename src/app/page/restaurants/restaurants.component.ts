@@ -27,27 +27,6 @@ export class RestaurantsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.whereToEatService.getLoggedUser()
-      .subscribe(response => {
-        console.log(response.status);
-        if (response.status === 401) {
-          alert('You are not logged in.');
-          this.router.navigate(['login']).then(() => window.location.reload());
-        }
-      });
-    // this.whereToEatService.getLoggedUser()
-    //   .subscribe(response => {
-    //     if (response.status === 200) {
-    //       const user = response.body as User;
-    //       if (user.role !== Role.ADMIN) {
-    //         alert('You are not authorized to view this page.');
-    //         this.router.navigate(['login']).then(() => window.location.reload());
-    //       }
-    //     } else if (response.status === 401) {
-    //       alert('You are not logged in.');
-    //       this.router.navigate(['login']).then(() => window.location.reload());
-    //     }
-    //   });
   }
 
   onSearch() {
@@ -55,9 +34,6 @@ export class RestaurantsComponent implements OnInit {
       .subscribe(response => {
         if (response.status === 200) {
           this.foundRestaurant = response.body as Restaurant;
-        } else if (response.status === 401) {
-          alert('You are not logged in.');
-          this.router.navigate(['login']).then(() => window.location.reload());
         }
       });
   }
@@ -67,9 +43,6 @@ export class RestaurantsComponent implements OnInit {
       .subscribe(response => {
         if (response.status === 200) {
           alert('Restaurant submitted successfully');
-        } else if (response.status === 401) {
-          alert('You are not logged in.');
-          this.router.navigate(['login']).then(() => window.location.reload());
         }
       });
   }

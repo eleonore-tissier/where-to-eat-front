@@ -1,4 +1,4 @@
-<div class="navbar" *ngIf="loggedUser">
+<div class="navbar">
   <a
     routerLink="restaurants"
     matTooltip="ACCUEIL"
@@ -26,7 +26,6 @@
     matTooltipPosition="left"
   ><img src="/planning.svg"></a>
   <a
-    *ngIf="loggedUser?.role === Role.ROLE_ADMIN"
     routerLink="admin"
     matTooltip="ESPACE ADMINISTRATEUR"
     matTooltipPosition="left"

@@ -23,7 +23,7 @@ export class LoginComponent {
 
   @ViewChild('loginPage') loginForm!: NgForm;
 
-  loggedUser: User = new User();
+  loggedUser: User | undefined;
 
   constructor(
     private whereToEatService: WhereToEatService,
@@ -31,18 +31,18 @@ export class LoginComponent {
   ) {
   }
 
-  onSubmit(): void {
-    this.whereToEatService.checkUser(this.loginForm.value.firstName, this.loginForm.value.lastName)
-      .subscribe(response => {
-        if (
-          response.status === 200
-        ) {
-          this.loggedUser = response.body as User;
-          this.router.navigate(['restaurants']).then(() => window.location.reload());
-        } else if (response.status === 404) {
-          alert('User not found');
-          this.router.navigate(['login']).then(() => window.location.reload());
-        }
-      });
-  }
+  // onSubmit(): void {
+  //   this.whereToEatService.checkUser(this.loginForm.value.firstName, this.loginForm.value.lastName)
+  //     .subscribe(response => {
+  //       if (
+  //         response.status === 200
+  //       ) {
+  //         this.loggedUser = response.body as User;
+  //         this.router.navigate(['restaurants']).then(() => window.location.reload());
+  //       } else if (response.status === 404) {
+  //         alert('User not found');
+  //         this.router.navigate(['login']).then(() => window.location.reload());
+  //       }
+  //     });
+  // }
 }
