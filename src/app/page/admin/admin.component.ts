@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user';
 import {WhereToEatService} from '../../services/where-to-eat.service';
-import {DatePipe, NgForOf} from '@angular/common';
+import {DatePipe, NgForOf, NgIf} from '@angular/common';
 import {Season} from '../../models/season';
 import {Router} from '@angular/router';
 import {Role} from '../../models/role.model';
@@ -12,7 +12,8 @@ import {AddUserFormComponent} from '../../components/add-user-form/add-user-form
   selector: 'app-admin',
   imports: [
     NgForOf,
-    DatePipe
+    DatePipe,
+    NgIf
   ],
   standalone: true,
   templateUrl: './admin.component.html',
@@ -32,8 +33,23 @@ export class AdminComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.getUsers();
-    this.getCurrentSeason();
+    let user = sessionStorage.getItem("loggedUserId");
+    if (user === undefined || user === null) {
+      alert('User not found or not logged in');
+      this.router.navigate(['']).then(() => window.location.reload());
+    } else if (user !== null) {
+      this.whereToEatService.getUser(parseInt(user)).subscribe(response => {
+        if (response.status === 200) {
+          if ((response.body as User).role !== Role.ROLE_ADMIN) {
+            alert('User not admin');
+            this.router.navigate(['restaurants']).then(() => window.location.reload());
+          } else {
+            this.getUsers();
+            this.getCurrentSeason();
+          }
+        }
+      });
+    }
   }
 
   public getUsers(): void {
@@ -65,4 +81,6 @@ export class AdminComponent implements OnInit{
     dialogConfig.autoFocus = false;
     this.dialog.open(AddUserFormComponent, dialogConfig);
   }
+
+  protected readonly Role = Role;
 }

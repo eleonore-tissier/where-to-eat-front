@@ -28,10 +28,12 @@ export class DinnerCardComponent implements OnInit {
 
   ngOnInit() {
     if (this.submission &&
-      this.submission.userId &&
+      this.submission.user &&
       this.submission.restaurantName
     ) {
-      this.getUser(this.submission.userId);
+      if (this.submission.user.id !== undefined) {
+        this.getUser(this.submission.user.id);
+      }
       this.getRestaurant(this.submission.restaurantName)
     }
   }
@@ -60,4 +62,5 @@ export class DinnerCardComponent implements OnInit {
       });
   }
 
+  protected readonly User = User;
 }
