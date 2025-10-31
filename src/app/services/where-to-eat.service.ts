@@ -16,6 +16,11 @@ export class WhereToEatService {
 
   constructor(private http: HttpClient) { }
 
+  public login(firstName: string, lastName: string) {
+    const params: HttpParams = new HttpParams().set('firstName', firstName).set('lastName', lastName);
+    return this.http.get(this.whereToEatUrl + 'login', {params, observe: 'response'});
+  }
+
   public getRestaurants() {
     return this.http.get(this.whereToEatUrl + 'restaurants', {observe: 'response'});
   }
@@ -33,9 +38,8 @@ export class WhereToEatService {
     return this.http.get(this.whereToEatUrl + 'submissions', {observe: 'response'});
   }
 
-  public submitRestaurant(restaurantName: string, eventDate: string) {
-    const params: HttpParams = new HttpParams().set('restaurantName', restaurantName).set('eventDate', eventDate);
-    console.log(params);
+  public submitRestaurant(restaurantName: string, eventDate: string, userId: string) {
+    const params: HttpParams = new HttpParams().set('restaurantName', restaurantName).set('eventDate', eventDate).set('userId', userId);
     return this.http.post(this.whereToEatUrl + 'submitRestaurant', params, {observe: 'response'});
   }
 
@@ -56,7 +60,12 @@ export class WhereToEatService {
     return this.http.get(this.whereToEatUrl + 'user', {params, observe: 'response'});
   }
 
-  public submitVote(user: User) {
-    return this.http.put(this.whereToEatUrl + 'updateUserPoints', user, {observe: 'response'});
+  public updateUser(user: User) {
+    return this.http.put(this.whereToEatUrl + 'updateUser', user, {observe: 'response'});
+  }
+
+  public updateUserSubmission(userId: number, submissionId: number) {
+    const params: HttpParams = new HttpParams().set('userId', userId).set('submissionId', submissionId);
+    return this.http.post(this.whereToEatUrl + 'addUserSubmission', params, {observe: 'response'});
   }
 }

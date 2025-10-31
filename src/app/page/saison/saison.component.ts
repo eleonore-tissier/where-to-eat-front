@@ -28,8 +28,13 @@ export class SaisonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCurrentSeason();
-    this.getOrderedUsers();
+    if (sessionStorage.getItem("loggedUserId") === undefined || sessionStorage.getItem("loggedUserId") === null) {
+      alert('User not found or not logged in');
+      this.router.navigate(['']).then(() => window.location.reload());
+    } else {
+      this.getCurrentSeason();
+      this.getOrderedUsers();
+    }
   }
 
   getCurrentSeason(): void {

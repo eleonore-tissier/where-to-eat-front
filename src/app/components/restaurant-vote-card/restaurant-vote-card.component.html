@@ -1,13 +1,14 @@
 <div class="circle">
   <img src="/cutleries.png">
   <p>{{ submission?.restaurantName }}</p>
+  <p>{{ submission?.date | date: 'dd/MM/yyyy' }}</p>
 </div>
 
 <div class="vote-bar">
-  <p>Proposé par : <span>{{ user?.firstName }} {{ user?.lastName }}</span></p>
+  <p>Proposé par : <span>{{ targetUser?.firstName }} {{ targetUser?.lastName }}</span></p>
   <p>Je recommande ?</p>
   <form>
-    <button class="vote-button" (click)="vote_value = true; onSubmit()" ><img src="/tada.png">Oui !<img src="/tada.png"></button>
-    <button class="vote-button" (click)="vote_value = false; onSubmit()">Non !</button>
+    <button class="vote-button" (click)="onSubmit(true)" ><img src="/tada.png">Oui !<img src="/tada.png"></button>
+    <button class="vote-button" (click)="onSubmit(false)">Non !</button>
   </form>
 </div>

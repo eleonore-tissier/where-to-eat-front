@@ -31,18 +31,22 @@ export class LoginComponent {
   ) {
   }
 
-  // onSubmit(): void {
-  //   this.whereToEatService.checkUser(this.loginForm.value.firstName, this.loginForm.value.lastName)
-  //     .subscribe(response => {
-  //       if (
-  //         response.status === 200
-  //       ) {
-  //         this.loggedUser = response.body as User;
-  //         this.router.navigate(['restaurants']).then(() => window.location.reload());
-  //       } else if (response.status === 404) {
-  //         alert('User not found');
-  //         this.router.navigate(['login']).then(() => window.location.reload());
-  //       }
-  //     });
-  // }
+  onSubmit() {
+    this.whereToEatService.login(this.loginForm.value.firstName, this.loginForm.value.lastName)
+      .subscribe(response => {
+        if (
+              response.status === 200
+            ) {
+              this.loggedUser = response.body as User;
+              if (this.loggedUser.id !== undefined) {
+                sessionStorage.setItem("loggedUserId", "" + this.loggedUser.id);
+              }
+              this.router.navigate(['restaurants']).then(() => window.location.reload());
+            } else if (response.status === 404) {
+              alert('User not found or not logged in');
+              this.router.navigate(['']).then(() => window.location.reload());
+            }
+      });
+  }
+
 }

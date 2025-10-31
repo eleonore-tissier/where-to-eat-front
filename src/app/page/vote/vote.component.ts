@@ -25,7 +25,12 @@ export class VoteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getSubmissions();
+    if (sessionStorage.getItem("loggedUserId") === undefined || sessionStorage.getItem("loggedUserId") === null) {
+      alert('User not found or not logged in');
+      this.router.navigate(['']).then(() => window.location.reload());
+    } else {
+      this.getSubmissions();
+    }
   }
 
   public getSubmissions(): void {
