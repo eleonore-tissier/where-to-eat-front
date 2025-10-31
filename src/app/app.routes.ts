@@ -8,7 +8,8 @@ import {LoginComponent} from './page/login/login.component';
 import {AdminComponent} from './page/admin/admin.component';
 
 export const routes: Routes = [
-  {path: '', component: RestaurantsComponent},
+  {path: '', component: LoginComponent},
+  {path: 'restaurants', component: RestaurantsComponent},
   {path: 'saison', component: SaisonComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'planning', component: PlanningComponent},

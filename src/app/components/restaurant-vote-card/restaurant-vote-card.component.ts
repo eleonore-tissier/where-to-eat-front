@@ -5,12 +5,14 @@ import {Submission} from '../../models/submission';
 import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 import {WhereToEatService} from '../../services/where-to-eat.service';
 import {Router} from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-restaurant-vote-card',
   imports: [
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DatePipe
   ],
   standalone: true,
   templateUrl: './restaurant-vote-card.component.html',
@@ -19,7 +21,7 @@ import {Router} from '@angular/router';
 export class RestaurantVoteCardComponent implements OnInit {
   @Input() submission: Submission | undefined;
 
-  user: User | undefined;
+  targetUser: User | undefined;
 
   vote_value: boolean = false;
 
@@ -30,8 +32,8 @@ export class RestaurantVoteCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.submission) {
-      this.getUser(this.submission.userId);
+    if (this.submission && this.submission.user.id !== undefined) {
+      this.getUser(this.submission.user.id);
     }
   }
 
@@ -39,7 +41,7 @@ export class RestaurantVoteCardComponent implements OnInit {
     this.whereToEatService.getUser(id)
       .subscribe(response => {
         if (response.status === 200) {
-          this.user = response.body as User;
+          this.targetUser = response.body as User;
         } else if (response.status === 401) {
           alert('You are not logged in.');
           this.router.navigate(['login']).then(() => window.location.reload());
@@ -47,12 +49,22 @@ export class RestaurantVoteCardComponent implements OnInit {
       });
   }
 
-  onSubmit(): void {
-    if (this.vote_value && this.user) {
-      this.whereToEatService.submitVote(this.user)
+  onSubmit(vote: boolean): void {
+    if (vote === true && this.targetUser) {
+      // Submit user's vote and update target user score
+      this.whereToEatService.updateUser(this.targetUser)
         .subscribe(response => {
           if (response.status === 200) {
-            this.user = response.body as User;
+            this.targetUser = response.body as User;
+            if (this.targetUser.id !== undefined && this.submission && this.submission.id !== undefined) {
+              this.whereToEatService.updateUserSubmission(this.targetUser.id, this.submission.id).subscribe(response => {
+                if (response.status === 200) {
+                  alert('Votre vote a été enregistré !');
+                } else {
+                  alert("Oopsie, didn't work!");
+                }
+              });
+            }
           } else if (response.status === 401) {
             alert('You are not logged in.');
             this.router.navigate(['login']).then(() => window.location.reload());

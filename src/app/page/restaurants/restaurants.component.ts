@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from '@angular/forms';
 import {NgFor, NgIf} from '@angular/common';
 import {Restaurant} from '../../models/restaurant';
@@ -20,6 +20,8 @@ export class RestaurantsComponent implements OnInit {
 
   @ViewChild('submitRestaurant') submitRestaurant!: NgForm;
 
+  userId = sessionStorage.getItem("loggedUserId");
+
   constructor(
     private whereToEatService: WhereToEatService,
     private router: Router
@@ -27,6 +29,10 @@ export class RestaurantsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.userId === undefined || this.userId === null) {
+      alert('User not found or not logged in');
+      this.router.navigate(['']).then(() => window.location.reload());
+    }
   }
 
   onSearch() {
@@ -39,11 +45,13 @@ export class RestaurantsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.whereToEatService.submitRestaurant(this.searchRestaurant.value.name, this.submitRestaurant.value.date)
-      .subscribe(response => {
-        if (response.status === 200) {
-          alert('Restaurant submitted successfully');
-        }
-      });
+    if (this.userId !== null) {
+      this.whereToEatService.submitRestaurant(this.searchRestaurant.value.name, this.submitRestaurant.value.date, this.userId)
+        .subscribe(response => {
+          if (response.status === 200) {
+            alert('Restaurant submitted successfully');
+          }
+        });
+    }
   }
 }
